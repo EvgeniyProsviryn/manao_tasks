@@ -7,7 +7,4 @@ function task1($n){
 
 echo task1(14.543);
 
-
-
-
 ?>
