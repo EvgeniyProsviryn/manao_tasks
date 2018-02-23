@@ -2,27 +2,40 @@
 
 ini_set('display_errors', 'On');
 
+$col=0;
 $n = 10;
-$mas = [];
-$count = 0;
+
+$a = [];
 
 
-for($i = 0;$i<$n;$i++){
-    $mas[$i] = rand(10,20);
-    echo $mas[$i].' ';
+for($i=0; $i<$n; $i++){
+    $a[$i] = rand(10,20);
+    echo $a[$i].' ';
 }
 
-echo '<hr>';
 
-$element = $mas[0];
-
-for($i = 1;$i<$n;$i++){
-    if($mas[$i] !== $element){
-        $element = $mas[$i];
-        $count++;
-    }
+for($i=0; $i<$n; $i++){
+      $temp=0;
+      for($j=0; $j<$n; $j++){
+          if($a[$i]==$a[$j]){
+               $temp++;
+          }
+      
+      if($temp==0){
+          for($j=$i-1; $j<$n; $j++){
+              if($a[$i]==$a[$j]){
+                  $temp++;
+              }
+          }
+          
+          if($temp>1){
+              $col++;
+          }  
+       }
+      }
 }
 
-echo "Количество различных элементов: $count";
+echo "Количество: $col";
+
 
 ?>
