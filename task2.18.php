@@ -1,41 +1,42 @@
 <?php 
 
-ini_set('display_errors', 'On');
 
-$col=0;
-$n = 10;
+$mas = [];
+$n = 5;
+$count = 0;
+$flag = false;
 
-$a = [];
+for($i = 0;$i<$n;$i++){
+    $mas[$i] = rand(10,20);
+    echo $mas[$i].' ';
+}
 
+echo '<hr>';
 
-for($i=0; $i<$n; $i++){
-    $a[$i] = rand(10,20);
-    echo $a[$i].' ';
+for($i = 0;$i<$n-1;$i++){
+    for($j = $i+1;$j<$n;$j++){
+        if($mas[$i]==$mas[$j]){
+            $mas[$i] = "true";
+            $mas[$j] = "true";
+        }
+    }
+}
+
+for($i = 0;$i<$n;$i++){
+    echo $mas[$i].' ';
 }
 
 
-for($i=0; $i<$n; $i++){
-      $temp=0;
-      for($j=0; $j<$n; $j++){
-          if($a[$i]==$a[$j]){
-               $temp++;
-          }
-      
-      if($temp==0){
-          for($j=$i-1; $j<$n; $j++){
-              if($a[$i]==$a[$j]){
-                  $temp++;
-              }
-          }
-          
-          if($temp>1){
-              $col++;
-          }  
-       }
-      }
-}
+echo '<hr>';
 
-echo "Количество: $col";
+for($i = 0;$i<$n;$i++){
+    if($mas[$i]!="true"){
+        $count++;
+    }
+}   
+
+
+echo 'Различных элементов: '.$count;
 
 
 ?>
